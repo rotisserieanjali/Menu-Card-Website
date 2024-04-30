@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu Card</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<script src="https://kit.fontawesome.com/d9e20e8853.js" crossorigin="anonymous"></script>
+<style>
+    body{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+  .owl-carousel {
+    position: relative;
+  }
+  .navigation {
+    position: fixed;
+    bottom: 20px;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+  }
+  .navigation button {
+    background-color: #e81515;
+    border: none;
+    color: #fff0d9;
+    height: 50px;
+    width: 50px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 5px;
+
+  }
+  .owl-item img {
+    width: 100%;
+    height: auto;
+  }
+  .page-number{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="owl-carousel">
+  <div class="item"><img src="images/Rotisserie New Menu.png" alt="Page 1"></div>
+  <div class="item"><img src="images/Rotisserie New Menu.png" alt="Page 1"></div>
+  <div class="item"><img src="images/Rotisserie New Menu.png" alt="Page 1"></div>
+  <div class="item"><img src="images/Rotisserie New Menu.png" alt="Page 1"></div>
+  <div class="item"><img src="images/Rotisserie New Menu.png" alt="Page 1"></div>
+  <div class="item"><img src="images/Rotisserie New Menu.png" alt="Page 1"></div>
+  <div class="item"><img src="images/Rotisserie New Menu.png" alt="Page 1"></div>
+  <div class="item"><img src="images/Rotisserie New Menu.png" alt="Page 1"></div>
+  <div class="item"><img src="images/Rotisserie New Menu.png" alt="Page 1"></div>
+  <div class="item"><img src="images/Rotisserie New Menu.png" alt="Page 1"></div>
+  <div class="item"><img src="images/Rotisserie New Menu.png" alt="Page 1"></div>
+</div>
+
+
+<div class="page-number">
+    <span class="current-page">1</span> of <span class="total-pages">2</span>
+  </div>
+
+<div class="navigation">
+  <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+  <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+$(document).ready(function(){
+  var owl = $(".owl-carousel").owlCarousel({
+    items: 1,
+    loop: true,
+    nav: false,
+    touchDrag: true, // Enable touch drag
+    onChanged: updatePageNumber
+  });
+
+  $(".prev").click(function(){
+    owl.trigger("prev.owl.carousel");
+  });
+
+  $(".next").click(function(){
+    owl.trigger("next.owl.carousel");
+  });
+
+  function updatePageNumber(event) {
+    var currentItem = event.item.index + 1;
+    var totalItems = event.item.count;
+    $(".current-page").text(currentItem);
+    $(".total-pages").text(totalItems);
+  }
+});
+</script>
+
+</body>
+</html>
